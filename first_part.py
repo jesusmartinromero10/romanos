@@ -72,5 +72,44 @@ def entero_a_romano(numero):
 
 
 entero_a_romano(336)
+""""
+"MCMXCIV" 1994
+"""
+
+        
+
+def romano_a_entero(texto):
+    def indice(int):
+        try:
+            if num < numero_list[ix + 1]:
+            
+                return True
+        except IndexError:
+            pass
+        
+    componentes_invertida = {}
 
 
+    for clave, valor in componentes.items():
+        componentes_invertida[valor] = clave
+    numero = texto
+    resultado = 0
+    numero_list = []
+    ix = 0
+    for i in numero:
+        numero_list.append(componentes_invertida[i])
+    for num in numero_list:
+        if indice(numero) == True:
+            resultado += (numero_list[ix + 1] - numero_list[ix])
+            numero_list.pop(ix + 1)
+            ix+=1
+        
+        
+        else:
+            
+            resultado += numero_list[ix]
+            ix += 1
+    print(resultado)
+    
+
+romano_a_entero("V")   

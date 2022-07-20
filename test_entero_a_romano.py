@@ -1,4 +1,4 @@
-from first_part import entero_a_romano
+from first_part import romano_a_entero, entero_a_romano
 
 """
 1 crear funcion que pasa de entero > 0 y < 4000 a romano
@@ -15,5 +15,8 @@ f) 4.5 -> RomanNumberError (debe ser un entero)
 
 
 
-def test_error_si_entero_mayor_de_3999():
-    assert entero_a_romano(1994) == "MCMXCIV"    
+#def test_error_si_entero_mayor_de_3999():
+ #   assert entero_a_romano(1994) == "MCMXCIV"
+
+def test_error_romano_entero():
+    assert romano_a_entero("MCMXCIV") == 1994
