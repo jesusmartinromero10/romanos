@@ -86,7 +86,19 @@ def romano_a_entero(texto):
                 return True
         except IndexError:
             pass
-        
+
+    def comprobacion_indice(indice):
+        try:
+
+            if num == numero_list[ix + 1] and num == numero_list[ix + 2] and num == numero_list[ix + 3]:
+                return True
+            
+        except IndexError:
+            pass  
+
+
+
+
     componentes_invertida = {}
 
 
@@ -99,6 +111,10 @@ def romano_a_entero(texto):
     for i in numero:
         numero_list.append(componentes_invertida[i])
     for num in numero_list:
+        if comprobacion_indice(numero_list) == True:
+            print("numero romano incorrecto")
+            resultado = ""
+            break
         if indice(numero) == True:
             resultado += (numero_list[ix + 1] - numero_list[ix])
             numero_list.pop(ix + 1)
@@ -109,7 +125,9 @@ def romano_a_entero(texto):
             
             resultado += numero_list[ix]
             ix += 1
+        
+            
     print(resultado)
     
 
-romano_a_entero("V")   
+romano_a_entero("MMMCMVVVVIII")   
