@@ -20,8 +20,10 @@ componentes = {
 }
 
 simbolo_romano = {
-    "M" : 1000, "D" : 500, "C" : 100, "L" : 50, "X" : 10, "V" : 5, "I" : 1
+    "M" : 1000, "D" : 500, "C" : 100, "L" : 50, "X" : 10, "V" : 5, "I" : 1, "" : 0
 }
+class RomanNumberError(Exception):
+    pass
 
 def entero_a_romano(numero):
     
@@ -39,8 +41,24 @@ def entero_a_romano(numero):
 
 def romano_a_entero2(romano: str) -> int:
     r = 0
+    caracter_anterior = ""
+    cont_repes = 1
     for caracter in romano:
+        
+        if caracter == caracter_anterior:
+            cont_repes += 1
+        else:
+            cont_repes = 1
+
+        if cont_repes > 3:
+            raise RomanNumberError("No se pueden dar mas de tres repeticiones")
+
+        if simbolo_romano[caracter] > simbolo_romano[caracter_anterior]:
+            r -= simbolo_romano[caracter_anterior] * 2
+            
+
         r += simbolo_romano[caracter]
+        caracter_anterior = caracter
         
     
     return r

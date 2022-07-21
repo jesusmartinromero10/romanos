@@ -1,5 +1,7 @@
+import pytest
 
-from romano_funcional import entero_a_romano, romano_a_entero2
+
+from romano_funcional import RomanNumberError, entero_a_romano, romano_a_entero2
 
 """
 1 crear funcion que pasa de entero > 0 y < 4000 a romano
@@ -25,3 +27,12 @@ def test_error_si_entero_mayor_de_3999():
 def test_romano_a_entero_ordenados():
     assert romano_a_entero2("I") == 1
     assert romano_a_entero2("MDCCXIII") == 1713
+
+def test_romano_a_entero_no_mas_de_tres():
+
+    with pytest.raises(RomanNumberError) as exceptionInfo:
+        romano_a_entero2("LIIII")
+    assert str(exceptionInfo.value) == "No se pueden dar mas de tres repeticiones"
+
+def test_romano_a_entero_resta_si_soy_mayor_anterior():
+    assert romano_a_entero2("IV") == 4
