@@ -39,7 +39,7 @@ def entero_a_romano(numero):
 
     return romano
 
-def romano_a_entero2(romano: str) -> int:
+def romano_a_entero2(romano):
     r = 0
     caracter_anterior = ""
     cont_repes = 1
