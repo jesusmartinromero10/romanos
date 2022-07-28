@@ -102,6 +102,29 @@ class NumeroRomano:
             return NumeroRomano(self.valor + otro.valor)
         elif isinstance(otro, int):
             return NumeroRomano(self.valor + otro)
+        elif isinstance(otro, float):
+            return NumeroRomano(self.valor + int(otro))
+
+    
+    def __radd__(self, otro):
+        if isinstance(otro, int):
+            return NumeroRomano(otro + self.valor)
+        elif isinstance(otro, float):
+            return NumeroRomano(self.valor + int(otro))
+        #return self__add__(otro)
+
+    def __mul__(self, otro):
+        if isinstance(otro, NumeroRomano):
+            return NumeroRomano(self.valor * otro.valor)
+        elif isinstance(otro, int):
+            return NumeroRomano(self.valor * otro)
+    
+    def __rmul__(self, otro):
+        if isinstance(otro, int):
+            return NumeroRomano(otro * self.valor)
+
+        
+
 
 
 
